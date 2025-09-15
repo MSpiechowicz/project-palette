@@ -51,7 +51,7 @@ export class TailwindV3ConfigStrategy extends ConfigStrategy {
     extend: {
       colors: {
         ${Object.entries(config)
-          .map(([key, value]) => `${key}: '${value}'`)
+          .map(([key, value]) => `'${key}': '${value}'`)
           .join(",\n        ")}
       }
     }
