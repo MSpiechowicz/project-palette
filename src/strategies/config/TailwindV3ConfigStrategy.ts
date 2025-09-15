@@ -1,6 +1,6 @@
 import { ConfigStrategy } from "./ConfigStrategy";
 
-export class TailwindConfigStrategy extends ConfigStrategy {
+export class TailwindV3ConfigStrategy extends ConfigStrategy {
   generate(): string {
     if (!this.palette) {
       return "";

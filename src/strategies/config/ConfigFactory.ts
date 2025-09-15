@@ -4,7 +4,7 @@ import type { ConfigType } from "@/types/config";
 import type { ConfigStrategy } from "./ConfigStrategy";
 import { CssConfigStrategy } from "./CssConfigStrategy";
 import { ScssConfigStrategy } from "./ScssConfigStrategy";
-import { TailwindConfigStrategy } from "./TailwindConfigStrategy";
+import { TailwindV3ConfigStrategy } from "./TailwindV3ConfigStrategy";
 import { TailwindV4ConfigStrategy } from "./TailwindV4ConfigStrategy";
 
 export function getConfigStrategy(
@@ -14,7 +14,7 @@ export function getConfigStrategy(
 ): ConfigStrategy {
   switch (configType) {
     case ConfigFormat.TAILWIND_v3:
-      return new TailwindConfigStrategy(palette, config);
+      return new TailwindV3ConfigStrategy(palette, config);
     case ConfigFormat.TAILWIND_V4:
       return new TailwindV4ConfigStrategy(palette, config);
     case ConfigFormat.SCSS:
