@@ -5,10 +5,6 @@ import { useCallback } from "react";
 export function ProjectColorGenerated() {
   const { palette, setBaseColor, setPalette } = useColorStore();
 
-  if (!palette || palette?.colors?.length === 0) {
-    return null;
-  }
-
   const setNewPrimaryColor = useCallback(
     (color: string) => {
       setBaseColor(color);
@@ -16,6 +12,10 @@ export function ProjectColorGenerated() {
     },
     [setBaseColor, setPalette],
   );
+
+  if (!palette || palette?.colors?.length === 0) {
+    return null;
+  }
 
   return (
     <div>

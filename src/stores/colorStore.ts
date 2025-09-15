@@ -25,7 +25,7 @@ interface ColorStore {
   setIncludeOklch: (includeOklch: boolean) => void
   setIncludeAdditionalColors: (includeAdditionalColors: boolean) => void
   setIncludeTextColors: (includeTextColors: boolean) => void
-  setPalette: (palette: ColorPalette) => void
+  setPalette: (palette: ColorPalette | null) => void
   setBaseColor: (baseColor: string) => void
   setTailwindV3Config: (tailwindV3Config: string) => void
   setTailwindV4Config: (tailwindV4Config: string) => void
@@ -63,7 +63,7 @@ const useColorStore = create<ColorStore>((set) => ({
   setHasAnyColorFormat: (hasAnyColorFormat: boolean) => set({ hasAnyColorFormat }),
   setIncludeAdditionalColors: (includeAdditionalColors: boolean) => set({ includeAdditionalColors }),
   setIncludeTextColors: (includeTextColors: boolean) => set({ includeTextColors }),
-  setPalette: (palette: ColorPalette) => set({ palette }),
+  setPalette: (palette: ColorPalette | null) => set({ palette }),
   setBaseColor: (baseColor: string) => set({ baseColor }),
   setTailwindV3Config: (tailwindV3Config: string) => set({ tailwindV3Config }),
   setTailwindV4Config: (tailwindV4Config: string) => set({ tailwindV4Config }),
