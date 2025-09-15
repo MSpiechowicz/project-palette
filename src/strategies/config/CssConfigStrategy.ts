@@ -6,52 +6,52 @@ export class CssConfigStrategy extends ConfigStrategy {
       return "";
     }
 
-    const variables = [":root {", "  /* Primary Color */"];
+    const config = [":root {", "  /* Primary Color */"];
 
     if (this.config.includeHex) {
-      variables.push(`  --color-primary: ${this.palette.primary.hex};`);
+      config.push(`  --color-primary: ${this.palette.primary.hex};`);
     }
     if (this.config.includeRgb) {
-      variables.push(`  --color-primary-rgb: ${this.palette.primary.rgb};`);
+      config.push(`  --color-primary-rgb: ${this.palette.primary.rgb};`);
     }
     if (this.config.includeHsl) {
-      variables.push(`  --color-primary-hsl: ${this.palette.primary.hsl};`);
+      config.push(`  --color-primary-hsl: ${this.palette.primary.hsl};`);
     }
     if (this.config.includeOklch) {
-      variables.push(`  --color-primary-oklch: ${this.palette.primary.oklch};`);
+      config.push(`  --color-primary-oklch: ${this.palette.primary.oklch};`);
     }
     if (this.config.includeTextColors) {
-      variables.push(
+      config.push(
         `  --color-primary-text: ${this.palette.primary.foregroundColor};`,
       );
     }
 
     if (this.config.includeAdditionalColors) {
-      variables.push("  ", "  /* Generated Palette */");
+      config.push("  ", "  /* Generated Palette */");
 
       this.palette.colors.forEach((color, index) => {
         if (this.config.includeHex) {
-          variables.push(`  --color-${index + 1}: ${color.hex};`);
+          config.push(`  --color-${index + 1}: ${color.hex};`);
         }
         if (this.config.includeRgb) {
-          variables.push(`  --color-${index + 1}-rgb: ${color.rgb};`);
+          config.push(`  --color-${index + 1}-rgb: ${color.rgb};`);
         }
         if (this.config.includeHsl) {
-          variables.push(`  --color-${index + 1}-hsl: ${color.hsl};`);
+          config.push(`  --color-${index + 1}-hsl: ${color.hsl};`);
         }
         if (this.config.includeOklch) {
-          variables.push(`  --color-${index + 1}-oklch: ${color.oklch};`);
+          config.push(`  --color-${index + 1}-oklch: ${color.oklch};`);
         }
         if (this.config.includeTextColors) {
-          variables.push(
+          config.push(
             `  --color-${index + 1}-text: ${color.foregroundColor};`,
           );
         }
       });
     }
 
-    variables.push("}");
+    config.push("}");
 
-    return variables.join("\n");
+    return config.join("\n");
   }
 }
