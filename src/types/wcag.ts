@@ -1,0 +1,1 @@
+export type WCAGLevel = "AAA" | "AA" | "A" | "Fail";
