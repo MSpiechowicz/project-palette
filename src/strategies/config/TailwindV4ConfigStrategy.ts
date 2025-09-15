@@ -1,3 +1,4 @@
+import { toKebabCase } from "@/utils/colorPalette";
 import { ConfigStrategy } from "./ConfigStrategy";
 
 export class TailwindV4ConfigStrategy extends ConfigStrategy {
@@ -27,23 +28,24 @@ export class TailwindV4ConfigStrategy extends ConfigStrategy {
     }
 
     if (this.config.includeAdditionalColors) {
-      this.palette.colors.forEach((color, index) => {
+      for (const color of this.palette.colors) {
+        const colorName = toKebabCase(color.name);
         if (this.config.includeHex) {
-          config.push(`  --color-${index + 1}: ${color.hex};`);
+          config.push(`  --color-${colorName}: ${color.hex};`);
         }
         if (this.config.includeRgb) {
-          config.push(`  --color-${index + 1}-rgb: ${color.rgb};`);
+          config.push(`  --color-${colorName}-rgb: ${color.rgb};`);
         }
         if (this.config.includeHsl) {
-          config.push(`  --color-${index + 1}-hsl: ${color.hsl};`);
+          config.push(`  --color-${colorName}-hsl: ${color.hsl};`);
         }
         if (this.config.includeOklch) {
-          config.push(`  --color-${index + 1}-oklch: ${color.oklch};`);
+          config.push(`  --color-${colorName}-oklch: ${color.oklch};`);
         }
         if (this.config.includeTextColors) {
-          config.push(`  --color-${index + 1}-text: ${color.foregroundColor};`);
+          config.push(`  --color-${colorName}-text: ${color.foregroundColor};`);
         }
-      });
+      }
     }
 
     return `@theme {

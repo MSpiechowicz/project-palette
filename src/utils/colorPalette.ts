@@ -2,6 +2,21 @@ import type { ColorInfo, ColorPalette } from "@/interfaces/color";
 import { getWCAGOptimalForegroundColor } from "@/utils/wcag";
 import chroma from "chroma-js";
 
+/**
+ * Converts a color name to a valid CSS variable name by converting to kebab-case
+ * @param name - The color name to convert
+ * @returns A valid CSS variable name in kebab-case
+ */
+export function toKebabCase(name: string): string {
+  return name
+    .replace(/([a-z])([A-Z])/g, '$1-$2') // Handle camelCase
+    .replace(/\s+/g, '-') // Replace spaces with hyphens
+    .toLowerCase() // Convert to lowercase
+    .replace(/[^a-z0-9-]/g, '') // Remove any non-alphanumeric characters except hyphens
+    .replace(/-+/g, '-') // Replace multiple consecutive hyphens with single hyphen
+    .replace(/^-|-$/g, ''); // Remove leading/trailing hyphens
+}
+
 export function generateColorPalette(baseColor: string): ColorPalette {
   try {
     // Validate the color first

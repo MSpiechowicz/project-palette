@@ -1,3 +1,4 @@
+import { toKebabCase } from "@/utils/colorPalette";
 import { ConfigStrategy } from "./ConfigStrategy";
 
 export class TailwindV3ConfigStrategy extends ConfigStrategy {
@@ -25,9 +26,8 @@ export class TailwindV3ConfigStrategy extends ConfigStrategy {
     }
 
     if (this.config.includeAdditionalColors) {
-      this.palette.colors.forEach((color, index) => {
-        const colorName = `color-${index + 1}`;
-
+      for (const color of this.palette.colors) {
+        const colorName = toKebabCase(color.name);
         if (this.config.includeHex) {
           config[colorName] = color.hex;
         }
@@ -43,7 +43,7 @@ export class TailwindV3ConfigStrategy extends ConfigStrategy {
         if (this.config.includeTextColors) {
           config[`${colorName}-text`] = color.foregroundColor;
         }
-      });
+      }
     }
 
     return `module.exports = {

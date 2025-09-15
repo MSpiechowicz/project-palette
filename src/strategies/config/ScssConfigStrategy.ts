@@ -1,3 +1,4 @@
+import { toKebabCase } from "@/utils/colorPalette";
 import { ConfigStrategy } from "./ConfigStrategy";
 
 export class ScssConfigStrategy extends ConfigStrategy {
@@ -29,9 +30,8 @@ export class ScssConfigStrategy extends ConfigStrategy {
     if (this.config.includeAdditionalColors && this.palette.colors.length > 0) {
       config.push("");
 
-      this.palette.colors.forEach((color, index) => {
-        const colorName = `color-${index + 1}`;
-
+      for (const color of this.palette.colors) {
+        const colorName = toKebabCase(color.name);
         if (this.config.includeHex) {
           config.push(`$color-${colorName}: ${color.hex};`);
         }
@@ -47,7 +47,7 @@ export class ScssConfigStrategy extends ConfigStrategy {
         if (this.config.includeTextColors) {
           config.push(`$color-${colorName}-text: ${color.foregroundColor};`);
         }
-      });
+      }
     }
 
     return config.join("\n");
