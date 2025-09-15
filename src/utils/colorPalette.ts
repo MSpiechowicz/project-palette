@@ -2,67 +2,6 @@ import type { ColorInfo, ColorPalette } from "@/interfaces/color";
 import { getWCAGOptimalForegroundColor } from "@/utils/wcag";
 import chroma from "chroma-js";
 
-/**
- * Converts a color name to a valid CSS variable name by converting to kebab-case
- * @param name - The color name to convert
- * @returns A valid CSS variable name in kebab-case
- */
-export function toKebabCase(name: string): string {
-  return name
-    .replace(/([a-z])([A-Z])/g, '$1-$2') // Handle camelCase
-    .replace(/\s+/g, '-') // Replace spaces with hyphens
-    .toLowerCase() // Convert to lowercase
-    .replace(/[^a-z0-9-]/g, '') // Remove any non-alphanumeric characters except hyphens
-    .replace(/-+/g, '-') // Replace multiple consecutive hyphens with single hyphen
-    .replace(/^-|-$/g, ''); // Remove leading/trailing hyphens
-}
-
-export function generateColorPalette(baseColor: string): ColorPalette {
-  try {
-    // Validate the color first
-    if (!chroma.valid(baseColor)) {
-      throw new Error("Invalid color provided");
-    }
-
-    const primary = chroma(baseColor);
-    const primaryForeground = getWCAGOptimalForegroundColor(primary);
-    const primaryInfo: ColorInfo = {
-      hex: primary.hex(),
-      rgb: primary.css("rgb"),
-      hsl: primary.css("hsl"),
-      oklch: primary.css("oklch"),
-      name: "Primary",
-      foregroundColor: primaryForeground.color,
-      contrastRatio: primaryForeground.ratio,
-      wcagLevel: primaryForeground.level,
-    };
-
-    // Generate variations (not including primary in the variations array)
-    const variations = generateColorVariations(primary);
-
-    return {
-      primary: primaryInfo,
-      colors: variations,
-    };
-  } catch (error) {
-    console.error("Error generating color palette:", error);
-    // Return a default palette if there's an error
-    return {
-      primary: {
-        hex: "#3b82f6",
-        rgb: "rgb(59, 130, 246)",
-        hsl: "hsl(217, 91%, 60%)",
-        oklch: "oklch(0.6 0.2 250)",
-        name: "Primary",
-        foregroundColor: "#ffffff",
-        contrastRatio: 4.5,
-        wcagLevel: "AA",
-      },
-      colors: [],
-    };
-  }
-}
-
 function generateColorVariations(baseColor: chroma.Color): ColorInfo[] {
   const variations: ColorInfo[] = [];
 
@@ -84,18 +23,18 @@ function generateColorVariations(baseColor: chroma.Color): ColorInfo[] {
 
   // Define curated color spectrum positions (well-distributed across color wheel)
   const spectrumPositions = [
-    { hue: 0, name: "Red" }, // 0°
-    { hue: 30, name: "Orange" }, // 30°
-    { hue: 60, name: "Yellow" }, // 60°
-    { hue: 90, name: "Lime" }, // 90°
-    { hue: 120, name: "Green" }, // 120°
-    { hue: 150, name: "Teal" }, // 150°
-    { hue: 180, name: "Cyan" }, // 180°
-    { hue: 210, name: "Sky" }, // 210°
-    { hue: 240, name: "Blue" }, // 240°
-    { hue: 270, name: "Indigo" }, // 270°
-    { hue: 300, name: "Purple" }, // 300°
-    { hue: 330, name: "Pink" }, // 330°
+    { hue: 0, name: "Red" },
+    { hue: 30, name: "Orange" },
+    { hue: 60, name: "Yellow" },
+    { hue: 90, name: "Lime" },
+    { hue: 120, name: "Green" },
+    { hue: 150, name: "Teal" },
+    { hue: 180, name: "Cyan" },
+    { hue: 210, name: "Sky" },
+    { hue: 240, name: "Blue" },
+    { hue: 270, name: "Indigo" },
+    { hue: 300, name: "Purple" },
+    { hue: 330, name: "Pink" },
   ];
 
   // Filter out colors that are too similar to the base color
@@ -188,4 +127,50 @@ function generateColorVariations(baseColor: chroma.Color): ColorInfo[] {
   }
 
   return variations;
+}
+
+export function generateColorPalette(baseColor: string): ColorPalette {
+  try {
+    // Validate the color first
+    if (!chroma.valid(baseColor)) {
+      throw new Error("Invalid color provided");
+    }
+
+    const primary = chroma(baseColor);
+    const primaryForeground = getWCAGOptimalForegroundColor(primary);
+    const primaryInfo: ColorInfo = {
+      hex: primary.hex(),
+      rgb: primary.css("rgb"),
+      hsl: primary.css("hsl"),
+      oklch: primary.css("oklch"),
+      name: "Primary",
+      foregroundColor: primaryForeground.color,
+      contrastRatio: primaryForeground.ratio,
+      wcagLevel: primaryForeground.level,
+    };
+
+    // Generate variations (not including primary in the variations array)
+    const variations = generateColorVariations(primary);
+
+    return {
+      primary: primaryInfo,
+      colors: variations,
+    };
+  } catch (error) {
+    console.error("Error generating color palette:", error);
+    // Return a default palette if there's an error
+    return {
+      primary: {
+        hex: "#3b82f6",
+        rgb: "rgb(59, 130, 246)",
+        hsl: "hsl(217, 91%, 60%)",
+        oklch: "oklch(0.6 0.2 250)",
+        name: "Primary",
+        foregroundColor: "#ffffff",
+        contrastRatio: 4.5,
+        wcagLevel: "AA",
+      },
+      colors: [],
+    };
+  }
 }

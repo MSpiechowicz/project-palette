@@ -1,4 +1,4 @@
-import { toKebabCase } from "@/utils/colorPalette";
+import { toKebabCase } from "@/utils/name";
 import { ConfigStrategy } from "./ConfigStrategy";
 
 export class CssConfigStrategy extends ConfigStrategy {
