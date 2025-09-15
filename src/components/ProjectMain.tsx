@@ -2,8 +2,7 @@ import { ConfigFormat } from "@/enums/config";
 import type { ColorFormatConfig } from "@/interfaces/color";
 import useColorStore from "@/stores/colorStore";
 import { getConfigStrategy } from "@/strategies/config/ConfigFactory";
-import { useCallback, useEffect } from "react";
-import { generateColorPalette } from "../utils/colorPalette";
+import { useEffect } from "react";
 import { ProjectCodeSnippets } from "./ProjectCodeSnippets";
 import { ProjectColorPalette } from "./ProjectColorPalette";
 import { ProjectConfiguration } from "./ProjectConfiguration";
@@ -20,22 +19,12 @@ export function ProjectMain() {
     includeAdditionalColors,
     includeTextColors,
     palette,
-    setPalette,
-    setBaseColor,
     setTailwindV3Config,
     setTailwindV4Config,
     setCssConfig,
     setScssConfig,
     setHasAnyColorFormat,
   } = useColorStore();
-
-  const setNewPrimaryColor = useCallback(
-    (newColor: string) => {
-      setBaseColor(newColor);
-      setPalette(generateColorPalette(newColor));
-    },
-    [setPalette, setBaseColor],
-  );
 
   useEffect(() => {
     if (palette) {
