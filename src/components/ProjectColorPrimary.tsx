@@ -9,7 +9,6 @@ export function ProjectColorPrimary() {
 
   return (
     <div className="space-y-6">
-      {/* Primary Color Section */}
       <div className="mb-8">
         <h3 className="text-lg font-medium text-slate-700 mb-3">Primary Color</h3>
         <div className="p-4 bg-slate-50 rounded-lg">
@@ -36,7 +35,6 @@ export function ProjectColorPrimary() {
         </div>
       </div>
 
-      {/* Text Color Section */}
       <div className="mb-8">
         <h3 className="text-lg font-medium text-slate-700 mb-3">Recommended Text Color</h3>
         <div className="p-4 bg-slate-50 rounded-lg">

@@ -19,10 +19,15 @@ export function ProjectColorGenerated() {
 
   return (
     <div>
-      <div className="mb-4">
-        <p className="text-sm text-slate-600 mb-3">
-          Click any color to make it your new primary color and generate a new
-          palette:
+      <div className="mb-6">
+        <h3 className="text-lg font-medium text-slate-700">
+          Additional Generated Colors
+        </h3>
+        <p className="text-sm text-slate-600 mb-3 max-w-[80ch]">
+          Here are some additional colors generated from the base color. They
+          are keeping the same contrast and saturation ratio as the primary
+          color. You can click any color to make it your new primary color and
+          generate a new palette.
         </p>
       </div>
       <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
@@ -69,10 +74,6 @@ export function ProjectColorGenerated() {
                 >
                   {color.wcagLevel}
                 </span>
-              </div>
-
-              <div className="text-xs text-blue-600 opacity-0 group-hover:opacity-100 transition-opacity">
-                Click to select
               </div>
             </div>
           </div>
