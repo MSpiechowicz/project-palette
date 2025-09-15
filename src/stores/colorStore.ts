@@ -43,7 +43,7 @@ const useColorStore = create<ColorStore>((set) => ({
   includeRgb: true,
   includeHsl: true,
   includeOklch: true,
-  hasAnyColorFormat: false,
+  hasAnyColorFormat: true,
   includeAdditionalColors: false,
   includeTextColors: true,
   palette: null,
