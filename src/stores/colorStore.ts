@@ -6,6 +6,7 @@ interface ColorStore {
   includeRgb: boolean
   includeHsl: boolean
   includeOklch: boolean
+  hasAnyColorFormat: boolean
   includeAdditionalColors: boolean
   includeTextColors: boolean
   palette: ColorPalette | null
@@ -34,6 +35,7 @@ interface ColorStore {
   setTailwindV4CopiedCode: (tailwindV4CopiedCode: boolean) => void
   setCssCopiedCode: (cssCopiedCode: boolean) => void
   setScssCopiedCode: (scssCopiedCode: boolean) => void
+  setHasAnyColorFormat: (hasAnyColorFormat: boolean) => void
 }
 
 const useColorStore = create<ColorStore>((set) => ({
@@ -41,6 +43,7 @@ const useColorStore = create<ColorStore>((set) => ({
   includeRgb: true,
   includeHsl: true,
   includeOklch: true,
+  hasAnyColorFormat: false,
   includeAdditionalColors: false,
   includeTextColors: true,
   palette: null,
@@ -57,6 +60,7 @@ const useColorStore = create<ColorStore>((set) => ({
   setIncludeRgb: (includeRgb: boolean) => set({ includeRgb }),
   setIncludeHsl: (includeHsl: boolean) => set({ includeHsl }),
   setIncludeOklch: (includeOklch: boolean) => set({ includeOklch }),
+  setHasAnyColorFormat: (hasAnyColorFormat: boolean) => set({ hasAnyColorFormat }),
   setIncludeAdditionalColors: (includeAdditionalColors: boolean) => set({ includeAdditionalColors }),
   setIncludeTextColors: (includeTextColors: boolean) => set({ includeTextColors }),
   setPalette: (palette: ColorPalette) => set({ palette }),

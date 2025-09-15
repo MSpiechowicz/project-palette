@@ -1,6 +1,6 @@
-import { ToggleSwitch } from "./ToggleSwitch";
+import { ProjectToggleSwitch } from "./ProjectToggleSwitch";
 
-export function ConfigurationGeneral({
+export function ProjectConfigurationGeneral({
   label,
   description,
   checked,
@@ -13,7 +13,7 @@ export function ConfigurationGeneral({
 }) {
   return (
     <div className="border-b border-slate-200 pb-4">
-      <ToggleSwitch
+      <ProjectToggleSwitch
         checked={checked}
         onChange={onChange}
         label={label}

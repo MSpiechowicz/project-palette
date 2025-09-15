@@ -1,7 +1,7 @@
-import { ToggleSwitch } from "./ToggleSwitch";
 import useColorStore from "@/stores/colorStore";
+import { ProjectToggleSwitch } from "./ProjectToggleSwitch";
 
-export function ConfigurationColors() {
+export function ProjectConfigurationColors() {
   const {
     includeHex,
     includeRgb,
@@ -39,7 +39,7 @@ export function ConfigurationColors() {
   return (
     <div className="grid grid-cols-1 gap-4">
       {colorOptions.map((option) => (
-        <ToggleSwitch
+        <ProjectToggleSwitch
           key={option.label}
           checked={option.value}
           onChange={option.onChange}

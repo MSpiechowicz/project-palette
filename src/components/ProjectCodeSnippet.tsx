@@ -1,7 +1,7 @@
 import useColorStore from "@/stores/colorStore";
 import { copyToClipboard } from "@/utils/clipboard";
 
-export function CodeSnippet({
+export function ProjectCodeSnippet({
   config,
   copiedCode,
   setCopiedCode,

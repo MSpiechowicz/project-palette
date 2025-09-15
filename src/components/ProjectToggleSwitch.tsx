@@ -1,4 +1,4 @@
-export function ToggleSwitch({
+export function ProjectToggleSwitch({
   checked,
   onChange,
   label,
