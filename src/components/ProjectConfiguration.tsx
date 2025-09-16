@@ -7,8 +7,10 @@ export function ProjectConfiguration() {
   const {
     includeAdditionalColors,
     includeTextColors,
+    showTextPreview,
     setIncludeAdditionalColors,
     setIncludeTextColors,
+    setShowTextPreview,
   } = useColorStore();
 
   return (
@@ -30,6 +32,13 @@ export function ProjectConfiguration() {
           description="When enabled, includes WCAG-compliant text colors for each background color in the generated configurations."
           checked={includeTextColors}
           onChange={setIncludeTextColors}
+        />
+
+        <ProjectConfigurationGeneral
+          label="Show Text Preview"
+          description="When enabled, displays example text within each generated color to preview WCAG compliance in real-time."
+          checked={showTextPreview}
+          onChange={setShowTextPreview}
         />
 
         <p className="text-sm text-slate-600 mb-4">

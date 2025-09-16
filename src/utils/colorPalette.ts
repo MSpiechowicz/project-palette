@@ -10,6 +10,7 @@ function generateColorVariations(baseColor: chroma.Color): ColorInfo[] {
   const baseLightness = baseColor.get("hsl.l");
   const baseAlpha = baseColor.alpha();
   const baseHue = baseColor.get("hsl.h") || 0;
+  
 
   // Define thresholds for unusable colors
   const minLightness = 0.15; // 15% minimum lightness
@@ -59,8 +60,12 @@ function generateColorVariations(baseColor: chroma.Color): ColorInfo[] {
   for (let i = 0; i < spectrumCount; i++) {
     const position = filteredPositions[i];
 
-    // Create color with same saturation and lightness as base, but different hue
-    let color = chroma.hsl(position.hue, baseSaturation, baseLightness);
+    // Create color with same saturation as base, but vary lightness for better contrast
+    // Use a range of lightness values to create more variety
+    const lightnessVariations = [0.2, 0.4, 0.6, 0.8]; // Different lightness levels
+    const selectedLightness = lightnessVariations[i % lightnessVariations.length];
+    
+    let color = chroma.hsl(position.hue, baseSaturation, selectedLightness);
 
     // Preserve alpha if the base color has transparency
     if (baseAlpha < 1) {
@@ -69,18 +74,18 @@ function generateColorVariations(baseColor: chroma.Color): ColorInfo[] {
 
     // Add minimal variation to make it feel natural
     const hueVariation = (Math.random() - 0.5) * 8; // ±4 degrees
-    const saturationVariation = (Math.random() - 0.5) * 0.05; // ±2.5% saturation
-    const lightnessVariation = (Math.random() - 0.5) * 0.05; // ±2.5% lightness
+    const saturationVariation = (Math.random() - 0.5) * 0.1; // ±5% saturation
+    const lightnessVariation = (Math.random() - 0.5) * 0.1; // ±5% lightness
 
     color = color
       .set("hsl.h", position.hue + hueVariation)
       .set(
         "hsl.s",
-        Math.max(0, Math.min(1, baseSaturation + saturationVariation)),
+        Math.max(0.1, Math.min(1, baseSaturation + saturationVariation)),
       )
       .set(
         "hsl.l",
-        Math.max(0, Math.min(1, baseLightness + lightnessVariation)),
+        Math.max(0.1, Math.min(0.9, selectedLightness + lightnessVariation)),
       );
 
     const foreground = getWCAGOptimalForegroundColor(color);

@@ -1,6 +1,7 @@
 import useColorStore from "@/stores/colorStore";
 import { generateColorPalette } from "@/utils/colorPalette";
 import { useCallback } from "react";
+import { ProjectSection } from "./ProjectSection";
 
 export function ProjectInput() {
   const {
@@ -64,16 +65,11 @@ export function ProjectInput() {
   ]);
 
   return (
-    <div className="bg-white rounded-2xl shadow-xl border border-slate-100 p-6 mb-8">
+    <ProjectSection>
       <div className="space-y-6">
         <div>
-          <label
-            htmlFor="base-color"
-            className="block text-lg font-semibold text-slate-800"
-          >
-            Base Color
-          </label>
-          <p className="text-slate-600 text-sm mb-4">
+          <h2 className="block text-xl font-bold text-slate-800">Base Color</h2>
+          <p className="text-slate-800 text-medium mb-4">
             Enter a base color in the RGB format to generate a beautiful color
             palette.
           </p>
@@ -100,14 +96,14 @@ export function ProjectInput() {
               <button
                 type="button"
                 onClick={generateProjectPalette}
-                className="px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-200 font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center justify-center min-w-[120px]"
+                className="px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-200 font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center justify-center min-w-[120px] cursor-pointer"
               >
                 Generate
               </button>
               <button
                 type="button"
                 onClick={resetToDefaults}
-                className="px-6 py-3 bg-gradient-to-r from-red-500 to-red-600 text-white rounded-lg hover:from-red-600 hover:to-red-700 transition-all duration-200 font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center justify-center min-w-[100px]"
+                className="px-6 py-3 bg-gradient-to-r from-red-500 to-red-600 text-white rounded-lg hover:from-red-600 hover:to-red-700 transition-all duration-200 font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center justify-center min-w-[100px] cursor-pointer"
               >
                 Reset
               </button>
@@ -115,6 +111,6 @@ export function ProjectInput() {
           </div>
         </div>
       </div>
-    </div>
+    </ProjectSection>
   );
 }

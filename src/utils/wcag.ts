@@ -1,5 +1,5 @@
-import type { WCAGLevel } from "@/types/wcag";
 import { WCAGRating } from "@/enums/wcag";
+import type { WCAGLevel } from "@/types/wcag";
 import chroma from "chroma-js";
 
 function getWCAGLevel(contrastRatio: number): WCAGLevel {
@@ -44,6 +44,7 @@ export function getWCAGOptimalForegroundColor(backgroundColor: chroma.Color): {
   const blackRatio = getWCAGContrastRatio(backgroundColor, black);
 
   const isWhiteBetter = whiteRatio > blackRatio;
+
 
   return {
     color: isWhiteBetter ? white.hex() : black.hex(),

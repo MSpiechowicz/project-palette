@@ -9,6 +9,7 @@ interface ColorStore {
   hasAnyColorFormat: boolean
   includeAdditionalColors: boolean
   includeTextColors: boolean
+  showTextPreview: boolean
   palette: ColorPalette | null
   baseColor: string
   tailwindV3Config: string
@@ -25,6 +26,7 @@ interface ColorStore {
   setIncludeOklch: (includeOklch: boolean) => void
   setIncludeAdditionalColors: (includeAdditionalColors: boolean) => void
   setIncludeTextColors: (includeTextColors: boolean) => void
+  setShowTextPreview: (showTextPreview: boolean) => void
   setPalette: (palette: ColorPalette | null) => void
   setBaseColor: (baseColor: string) => void
   setTailwindV3Config: (tailwindV3Config: string) => void
@@ -46,6 +48,7 @@ const useColorStore = create<ColorStore>((set) => ({
   hasAnyColorFormat: true,
   includeAdditionalColors: false,
   includeTextColors: true,
+  showTextPreview: false,
   palette: null,
   baseColor: "#3b82f6",
   tailwindV3Config: "",
@@ -63,6 +66,7 @@ const useColorStore = create<ColorStore>((set) => ({
   setHasAnyColorFormat: (hasAnyColorFormat: boolean) => set({ hasAnyColorFormat }),
   setIncludeAdditionalColors: (includeAdditionalColors: boolean) => set({ includeAdditionalColors }),
   setIncludeTextColors: (includeTextColors: boolean) => set({ includeTextColors }),
+  setShowTextPreview: (showTextPreview: boolean) => set({ showTextPreview }),
   setPalette: (palette: ColorPalette | null) => set({ palette }),
   setBaseColor: (baseColor: string) => set({ baseColor }),
   setTailwindV3Config: (tailwindV3Config: string) => set({ tailwindV3Config }),
