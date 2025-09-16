@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #c1babd;
+}
+
+@layer base {
+  input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0; /* removes default padding */
+  }
+  input[type="color"]::-webkit-color-swatch {
+    border: none; /* optional: remove default border */
+    border-radius: 0.5rem; /* you can apply Tailwind values manually */
+  }
+}
+
+body {
+  @apply m-0;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
