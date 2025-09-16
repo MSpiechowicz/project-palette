@@ -57,7 +57,7 @@ export function ProjectCodeSnippet({
         <button
           type="button"
           onClick={() => copyToClipboard(config, setCopiedCode)}
-          className="hidden md:flex px-4 py-2 bg-slate-100 text-slate-700 rounded-lg hover:bg-slate-200 transition-colors text-sm font-medium items-center"
+          className="hidden md:flex px-4 py-2 bg-slate-100 text-slate-700 rounded-lg hover:bg-slate-200 transition-colors text-sm font-medium items-center cursor-pointer"
         >
           <img src={Clipboard} alt="Clipboard" className="w-4 h-4 mr-2" />
           {copiedCode ? "Copied!" : "Copy"}
@@ -69,7 +69,7 @@ export function ProjectCodeSnippet({
       <button
         type="button"
         onClick={() => copyToClipboard(config, setCopiedCode)}
-        className="md:hidden w-full mt-4 px-4 py-2 bg-slate-100 text-slate-700 rounded-lg hover:bg-slate-200 transition-colors text-sm font-medium flex items-center justify-center"
+        className="md:hidden w-full mt-4 px-4 py-2 bg-slate-100 text-slate-700 rounded-lg hover:bg-slate-200 transition-colors text-sm font-medium flex items-center justify-center cursor-pointer"
       >
         <img src={Clipboard} alt="Clipboard" className="w-4 h-4 mr-2" />
         {copiedCode ? "Copied!" : "Copy"}
