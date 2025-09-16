@@ -26,6 +26,18 @@ export function ProjectInput() {
 
   const generateProjectPalette = useCallback(() => {
     setPalette(generateColorPalette(baseColor));
+
+    setTimeout(() => {
+      const colorVariationsElement =
+        document.getElementById("color-variations");
+
+      if (colorVariationsElement) {
+        colorVariationsElement.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+    }, 100);
   }, [baseColor, setPalette]);
 
   const resetToDefaults = useCallback(() => {
@@ -68,7 +80,9 @@ export function ProjectInput() {
     <ProjectSection>
       <div className="space-y-6">
         <div>
-          <h2 className="block text-2xl font-bold text-slate-800 mb-1">Base Color</h2>
+          <h2 className="block text-2xl font-bold text-slate-800 mb-1">
+            Base Color
+          </h2>
           <p className="text-slate-800 text-medium mb-4">
             Enter a base color in the RGB format to generate a beautiful color
             palette.

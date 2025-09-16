@@ -10,7 +10,10 @@ export function ProjectColorPalette() {
   }
 
   return (
-    <div className="bg-white rounded-xl shadow-lg p-6 mb-8">
+    <div
+      id="color-variations"
+      className="bg-white rounded-xl shadow-lg p-6 mb-8"
+    >
       <h2 className="text-2xl font-bold text-slate-800 mb-1">
         Color Variations
       </h2>
