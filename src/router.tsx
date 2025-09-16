@@ -7,8 +7,10 @@ import { routeTree } from './routeTree.gen'
 export const createRouter = () => {
   return createTanstackRouter({
     routeTree,
+    basepath: '/project-palette/',
     scrollRestoration: true,
     defaultPreloadStaleTime: 0,
+    defaultSsr: false,
   })
 }
 
