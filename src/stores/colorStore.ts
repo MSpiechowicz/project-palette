@@ -1,4 +1,4 @@
-import type { ColorPalette } from '@/interfaces/color'
+import type { ColorPalette } from '../interfaces/color'
 import { create } from 'zustand'
 
 interface ColorStore {

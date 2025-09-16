@@ -1,4 +1,4 @@
-import useColorStore from "@/stores/colorStore";
+import useColorStore from "../stores/colorStore";
 import { ProjectConfigurationGeneral } from "./ProjectConfigurationGeneral";
 import { ProjectWarningNotification } from "./ProjectWarningNotification";
 

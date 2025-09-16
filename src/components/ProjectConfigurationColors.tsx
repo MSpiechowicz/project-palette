@@ -1,4 +1,4 @@
-import useColorStore from "@/stores/colorStore";
+import useColorStore from "../stores/colorStore";
 import { ProjectToggleSwitch } from "./ProjectToggleSwitch";
 
 export function ProjectConfigurationColors() {

@@ -1,7 +1,7 @@
-import { ConfigFormat } from "@/enums/config";
-import type { ColorFormatConfig } from "@/interfaces/color";
-import useColorStore from "@/stores/colorStore";
-import { getConfigStrategy } from "@/strategies/config/ConfigFactory";
+import { ConfigFormat } from "../enums/config";
+import type { ColorFormatConfig } from "../interfaces/color";
+import useColorStore from "../stores/colorStore";
+import { getConfigStrategy } from "../strategies/config/ConfigFactory";
 import { useEffect } from "react";
 import { ProjectCodeSnippets } from "./ProjectCodeSnippets";
 import { ProjectColorPalette } from "./ProjectColorPalette";

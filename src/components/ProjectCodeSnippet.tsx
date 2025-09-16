@@ -1,6 +1,6 @@
-import Clipboard from "@/assets/clipboard.svg";
-import useColorStore from "@/stores/colorStore";
-import { copyToClipboard } from "@/utils/clipboard";
+import Clipboard from "../assets/clipboard.svg";
+import useColorStore from "../stores/colorStore";
+import { copyToClipboard } from "../utils/clipboard";
 
 export function ProjectCodeSnippet({
   config,

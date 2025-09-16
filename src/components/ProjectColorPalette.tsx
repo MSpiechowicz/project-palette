@@ -1,4 +1,4 @@
-import useColorStore from "@/stores/colorStore";
+import useColorStore from "../stores/colorStore";
 import { ProjectAnimatedSection } from "./ProjectAnimatedSection";
 import { ProjectColorGenerated } from "./ProjectColorGenerated";
 import { ProjectColorPrimary } from "./ProjectColorPrimary";

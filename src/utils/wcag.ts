@@ -1,5 +1,5 @@
-import { WCAGRating } from "@/enums/wcag";
-import type { WCAGLevel } from "@/types/wcag";
+import { WCAGRating } from "../enums/wcag";
+import type { WCAGLevel } from "../types/wcag";
 import chroma from "chroma-js";
 
 function getWCAGLevel(contrastRatio: number): WCAGLevel {

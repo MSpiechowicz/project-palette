@@ -1,4 +1,4 @@
-import type { ColorFormatConfig, ColorPalette } from "@/interfaces/color";
+import type { ColorFormatConfig, ColorPalette } from "../../interfaces/color";
 
 export class ConfigStrategy {
   protected palette: ColorPalette | null;

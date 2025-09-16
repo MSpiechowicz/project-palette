@@ -1,6 +1,6 @@
-import { ConfigFormat } from "@/enums/config";
-import type { ColorFormatConfig, ColorPalette } from "@/interfaces/color";
-import type { ConfigType } from "@/types/config";
+import { ConfigFormat } from "../../enums/config";
+import type { ColorFormatConfig, ColorPalette } from "../../interfaces/color";
+import type { ConfigType } from "../../types/config";
 import type { ConfigStrategy } from "./ConfigStrategy";
 import { CssConfigStrategy } from "./CssConfigStrategy";
 import { ScssConfigStrategy } from "./ScssConfigStrategy";

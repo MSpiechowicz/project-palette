@@ -1,4 +1,4 @@
-import useColorStore from "@/stores/colorStore";
+import useColorStore from "../stores/colorStore";
 
 export function ProjectWarningNotification() {
   const { hasAnyColorFormat } = useColorStore();
@@ -24,13 +24,10 @@ export function ProjectWarningNotification() {
             d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"
           />
         </svg>
-        <span className="text-sm font-medium text-amber-800">
-          No color formats selected
-        </span>
+        <span className="text-sm font-medium text-amber-800">No color formats selected</span>
       </div>
       <p className="text-sm text-amber-700 mt-1 ml-7">
-        Please enable at least one color format (HEX, RGB, HSL, OKLCH, or TEXT)
-        to generate code output.
+        Please enable at least one color format (HEX, RGB, HSL, OKLCH, or TEXT) to generate code output.
       </p>
     </div>
   );

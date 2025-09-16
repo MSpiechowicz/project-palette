@@ -1,5 +1,5 @@
-import type { ColorInfo, ColorPalette } from "@/interfaces/color";
-import { getWCAGOptimalForegroundColor } from "@/utils/wcag";
+import type { ColorInfo, ColorPalette } from "../interfaces/color";
+import { getWCAGOptimalForegroundColor } from "../utils/wcag";
 import chroma from "chroma-js";
 
 function generateColorVariations(baseColor: chroma.Color): ColorInfo[] {

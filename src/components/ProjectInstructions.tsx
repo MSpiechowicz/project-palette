@@ -1,4 +1,4 @@
-import useColorStore from "@/stores/colorStore";
+import useColorStore from "../stores/colorStore";
 
 export function ProjectInstructions() {
   const { palette } = useColorStore();

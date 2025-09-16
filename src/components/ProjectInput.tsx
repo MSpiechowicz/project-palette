@@ -1,5 +1,5 @@
-import useColorStore from "@/stores/colorStore";
-import { generateColorPalette } from "@/utils/colorPalette";
+import useColorStore from "../stores/colorStore";
+import { generateColorPalette } from "../utils/colorPalette";
 import { useCallback } from "react";
 import { ProjectSection } from "./ProjectSection";
 
