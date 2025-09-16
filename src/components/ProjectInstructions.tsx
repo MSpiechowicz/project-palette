@@ -9,9 +9,9 @@ export function ProjectInstructions() {
 
   return (
     <div className="bg-white rounded-xl shadow-lg p-6 text-center">
-      <div className="text-slate-500">
-        <p className="text-lg mb-2">🎨 Ready to create your color palette?</p>
-        <p>
+      <div className="flex flex-col">
+        <h4 className="text-2xl mb-2 font-bold">Ready to create your color palette?</h4>
+        <p className="text-md">
           Choose your favorite color and click "Generate Palette" to get
           started!
         </p>
