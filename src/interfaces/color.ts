@@ -1,4 +1,4 @@
-import type { WCAGLevel } from "@/types/wcag";
+import type { WCAGLevel } from "../types/wcag";
 
 export interface ColorInfo {
   hex: string;
