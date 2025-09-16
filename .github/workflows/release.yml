@@ -9,6 +9,7 @@ permissions:
   contents: write
   issues: write
   pull-requests: write
+  id-token: write
 
 jobs:
   build:
@@ -22,4 +23,6 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npm run release
