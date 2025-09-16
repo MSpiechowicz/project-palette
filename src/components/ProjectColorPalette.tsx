@@ -11,9 +11,12 @@ export function ProjectColorPalette() {
 
   return (
     <div className="bg-white rounded-xl shadow-lg p-6 mb-8">
-      <h2 className="text-2xl font-semibold text-slate-800 mb-6">
+      <h2 className="text-2xl font-bold text-slate-800 mb-1">
         Color Variations
       </h2>
+      <p className="text-slate-800 text-medium mb-4 max-w-[80ch]">
+        Information about your prefered color, WCAG compliance, and more.
+      </p>
 
       <ProjectColorPrimary />
       <ProjectColorGenerated />

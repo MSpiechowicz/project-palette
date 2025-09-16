@@ -1,3 +1,4 @@
+import Clipboard from "@/assets/clipboard.svg";
 import useColorStore from "@/stores/colorStore";
 import { copyToClipboard } from "@/utils/clipboard";
 
@@ -25,7 +26,7 @@ export function ProjectCodeSnippet({
       <div className="flex items-center justify-between mb-4">
         <div>
           <h2 className="text-xl font-semibold text-slate-800">{title}</h2>
-          <div className="flex gap-2 mt-1">
+          <div className="flex gap-2 mt2">
             {includeHex && (
               <span className="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded">
                 HEX
@@ -56,9 +57,10 @@ export function ProjectCodeSnippet({
         <button
           type="button"
           onClick={() => copyToClipboard(config, setCopiedCode)}
-          className="px-4 py-2 bg-slate-100 text-slate-700 rounded-lg hover:bg-slate-200 transition-colors text-sm font-medium"
+          className="px-4 py-2 bg-slate-100 text-slate-700 rounded-lg hover:bg-slate-200 transition-colors text-sm font-medium flex items-center"
         >
-          {copiedCode ? "Copied!" : "Copy CSS"}
+          <img src={Clipboard} alt="Clipboard" className="w-4 h-4 mr-2" />
+          {copiedCode ? "Copied!" : "Copy"}
         </button>
       </div>
       <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto text-sm">

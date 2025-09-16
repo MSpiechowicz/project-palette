@@ -4,15 +4,17 @@ export function ProjectConfigurationGeneral({
   label,
   description,
   checked,
+  isLast = false,
   onChange,
 }: {
   label: string;
   description: string;
   checked: boolean;
+  isLast?: boolean;
   onChange: (checked: boolean) => void;
 }) {
   return (
-    <div className="border-b border-slate-200 pb-4">
+    <div className={`border-b border-slate-200 pb-4 ${isLast ? "border-b-0" : ""}`}>
       <ProjectToggleSwitch
         checked={checked}
         onChange={onChange}

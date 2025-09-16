@@ -68,7 +68,7 @@ export function ProjectInput() {
     <ProjectSection>
       <div className="space-y-6">
         <div>
-          <h2 className="block text-xl font-bold text-slate-800">Base Color</h2>
+          <h2 className="block text-2xl font-bold text-slate-800 mb-1">Base Color</h2>
           <p className="text-slate-800 text-medium mb-4">
             Enter a base color in the RGB format to generate a beautiful color
             palette.
