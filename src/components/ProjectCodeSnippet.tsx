@@ -26,7 +26,7 @@ export function ProjectCodeSnippet({
       <div className="flex items-center justify-between mb-4">
         <div>
           <h2 className="text-xl font-semibold text-slate-800">{title}</h2>
-          <div className="flex gap-2 mt2">
+          <div className="flex gap-2 mt-2">
             {includeHex && (
               <span className="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded">
                 HEX
@@ -57,7 +57,7 @@ export function ProjectCodeSnippet({
         <button
           type="button"
           onClick={() => copyToClipboard(config, setCopiedCode)}
-          className="px-4 py-2 bg-slate-100 text-slate-700 rounded-lg hover:bg-slate-200 transition-colors text-sm font-medium flex items-center"
+          className="hidden md:flex px-4 py-2 bg-slate-100 text-slate-700 rounded-lg hover:bg-slate-200 transition-colors text-sm font-medium items-center"
         >
           <img src={Clipboard} alt="Clipboard" className="w-4 h-4 mr-2" />
           {copiedCode ? "Copied!" : "Copy"}
@@ -66,6 +66,14 @@ export function ProjectCodeSnippet({
       <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto text-sm">
         <code>{config}</code>
       </pre>
+      <button
+        type="button"
+        onClick={() => copyToClipboard(config, setCopiedCode)}
+        className="md:hidden w-full mt-4 px-4 py-2 bg-slate-100 text-slate-700 rounded-lg hover:bg-slate-200 transition-colors text-sm font-medium flex items-center justify-center"
+      >
+        <img src={Clipboard} alt="Clipboard" className="w-4 h-4 mr-2" />
+        {copiedCode ? "Copied!" : "Copy"}
+      </button>
     </div>
   );
 }
